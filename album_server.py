@@ -43,5 +43,6 @@ def save_my_data():
 if __name__ == "__main__":
     run(host="localhost", port=8080, debug=True)
 
+#для проверки можно использовать ниже запросы. При необходимости поправить их
 #http://localhost:8080/albums/Beatles
 #http -f POST localhost:8080/albums year='1992' artist='Tranwek' genre='rock' album='Sand'
