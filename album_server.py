@@ -30,7 +30,7 @@ def save_my_data():
         album_search.valid_data(year, artist,genre, album)
     except (album_search.albium_err, album_search.genre_err, album_search.artist_err, album_search.year_err) as err:
         return HTTPError(400,err)
-    except (album_search.albium_err, album_search.genre_err, album_search.duplicate_album, album_search.artist_err, album_search.year_err) as err:
+    except (album_search.duplicate_album) as err:
         return HTTPError(409,err)
     else:
         user_data = {
