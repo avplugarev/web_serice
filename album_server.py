@@ -28,6 +28,8 @@ def save_my_data():
         return HTTPError(400, "год введен не числом")
     try:
         album_search.valid_data(year, artist,genre, album)
+    except (album_search.albium_err, album_search.genre_err, album_search.artist_err, album_search.year_err) as err:
+        return HTTPError(400,err)
     except (album_search.albium_err, album_search.genre_err, album_search.duplicate_album, album_search.artist_err, album_search.year_err) as err:
         return HTTPError(409,err)
     else:
@@ -45,4 +47,4 @@ if __name__ == "__main__":
 
 #для проверки можно использовать ниже запросы. При необходимости поправить их
 #http://localhost:8080/albums/Beatles
-#http -f POST localhost:8080/albums year='1992' artist='Tranwek' genre='rock' album='Sand'
+#http -f POST localhost:8080/albums year='1992' artist='Tranwek' genre='rock' album='Saernd'
