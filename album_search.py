@@ -90,7 +90,8 @@ def valid_data(year, artist,genre, album):
                                                     Album.album ==album).first()
     if duplicate_new_album is not None:
         raise duplicate_album("Такой альбом уже есть")
-    return True
+    else:
+        return True
 
 def find(artist):
     """
